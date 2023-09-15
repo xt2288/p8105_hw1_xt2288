@@ -14,3 +14,20 @@ data("early_january_weather")
 The dataset has 15 variables, which are origin(weather station), year, month, day, hour(time of recording), temp(temperature in F), dewp(dewpoint in F), humid(relative humidity), wind_dir(wind direction in degrees), wind_speed(wind speed in mph), wind_gust(gust speed in mph), precip(precipitation in inches), pressure(sea level pressure in millibars), visib(visibility in miles), and time_hour(date and hour of the recording).
 The dataset has `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns. 
 The mean temperature is `r mean(early_january_weather$temp)`F.
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
+ggsave("problem 1 scatterplot.png")
+```
+In this plot, the temperature increases as day passes.
+
+
+
+
+
+
+
