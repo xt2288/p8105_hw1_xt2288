@@ -23,7 +23,7 @@ library(tidyverse)
 ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
 ggsave("problem 1 scatterplot.png")
 ```
-In this plot, the temperature increases as day passes.
+In this plot, the temperature increases as day passes. The temperature doesn't change much during high humidity days.
 
 
 
