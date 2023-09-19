@@ -33,12 +33,26 @@ P2_df =
   tibble(
     ran_sam = rnorm(10),
     log_vec = ran_sam > 0,
-    cha_vec = character(10),
-    fac_vec = factor(10,3)
+    cha_vec = as.character(ran_sam),
+    fac_vec = factor(c("1","2","3","1","2","3","1","2","3","1"),
+                     levels = c("1","2","3"))
     )
 ```
 
+```{r}
+mean(pull(P2_df,var=1))
+mean(pull(P2_df,var=2))
+mean(pull(P2_df,var=3))
+mean(pull(P2_df,var=4))
+```
 
+The first and second column can take the mean, which are numeric and logical columns. Character and factor cannot take the mean.
+
+```{r}
+as.numeric(pull(P2_df,var=2))
+as.numeric(pull(P2_df,var=3))
+as.numeric(pull(P2_df,var=4))
+```
 
 
 
