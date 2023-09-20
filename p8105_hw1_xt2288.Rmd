@@ -4,10 +4,15 @@ output: github_document
 date: "2023-09-15"
 ---
 
+```{r}
+library(moderndive)
+library(tidyverse)
+```
+
+
 ## Problem 1
 
 ```{r}
-library(moderndive)
 data("early_january_weather")
 ```
 
@@ -16,7 +21,7 @@ The dataset has `r nrow(early_january_weather)` rows and `r ncol(early_january_w
 The mean temperature is `r mean(early_january_weather$temp)`F.
 
 ```{r}
-library(tidyverse)
+
 ```
 
 ```{r}
@@ -33,9 +38,9 @@ P2_df =
   tibble(
     ran_sam = rnorm(10),
     log_vec = ran_sam > 0,
-    cha_vec = as.character(ran_sam),
-    fac_vec = factor(c("1","2","3","1","2","3","1","2","3","1"),
-                     levels = c("1","2","3"))
+    cha_vec = as.character(c("a","b","c","d","e","f","g","h","i","j")),
+    fac_vec = factor(c("L1","L2","L3","L1","L2","L3","L1","L2","L3","L1"),
+                     levels = c("L1","L2","L3"))
     )
 ```
 
@@ -48,11 +53,13 @@ mean(pull(P2_df,var=4))
 
 The first and second column can take the mean, which are numeric and logical columns. Character and factor cannot take the mean.
 
-```{r}
+```{r, eval=FALSE}
 as.numeric(pull(P2_df,var=2))
 as.numeric(pull(P2_df,var=3))
 as.numeric(pull(P2_df,var=4))
 ```
+Logical vector can be converted to numeric values. Ture is 1 and false is 0, so the logical vector has a mean. Character vector cannot be converted to numbers. The letters in character vector does not have a numeric meaning, so no numbers can represent the characters and no mean. The numeric value of the factor vector shows the levels from 1 to 3. There is no mean for the level values as it is meaningless.
+
 
 
 
