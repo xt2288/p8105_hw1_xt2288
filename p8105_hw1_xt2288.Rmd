@@ -21,10 +21,6 @@ The dataset has `r nrow(early_january_weather)` rows and `r ncol(early_january_w
 The mean temperature is `r mean(early_january_weather$temp)`F.
 
 ```{r}
-
-```
-
-```{r}
 ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
 ggsave("problem 1 scatterplot.png")
 ```
